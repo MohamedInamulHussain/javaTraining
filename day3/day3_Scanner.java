@@ -1,97 +1,46 @@
 //Program to demonstrate encapsulation 
 
-public class TaxCalculation { 
-//function to calculate tax 
-public void calculateTax(Person person) { 
-if (person.getAge() > 65 || person.getGender().equalsIgnoreCase("female")) { 
-person.setTax(0); 
-System.out.println("Tax not applicable"); 
-}  
-else { 
-if (person.getIncome() <= 160000) { 
-person.setTax(0); 
-} else if (person.getIncome() > 160000 && person.getIncome() <= 500000) { 
-person.setTax((person.getIncome() - 160000) * 10 / 100); 
-} else if (person.getIncome() >= 500000 && person.getIncome() <= 800000) { 
-person.setTax((person.getIncome() - 500000) * 20 / 100 + 34000); 
-} else { 
-person.setTax((person.getIncome() - 800000) * 30 / 100 + 94000); 
-} 
-} 
-} 
-} 
-//Program to define Person entity 
-public class Person { 
-//Data members 
-private String name; 
-private int income; 
-private String gender; 
-private int age; 
-private int tax; 
-//Getter and Setters 
-public int getTax() { 
-return tax; 
-} 
-public void setTax(int tax) { 
-this.tax = tax; 
-} 
-public String getName() { 
-return name; 
-} 
-public void setName(String name) { 
-this.name = name; 
-} 
-public int getIncome() { 
-return income; 
-} 
-public void setIncome(int income) { 
-this.income = income; 
-} 
-public String getGender() { 
-return gender; 
-} 
-public void setGender(String gender) { 
-this.gender = gender; 
-} 
-public int getAge() { 
-return age; 
-} 
-public void setAge(int age) { 
-this.age = age; 
-} 
-//Object class method to return string representation of Person object 
-@Override 
-public String toString() { 
-return "Person [name=" + name + ", income=" + income + ", gender=" + gender + ", age=" + age + ", tax="+tax+"]"; 
-} 
-} 
-//Program to demonstrate encapsulation 
 import java.util.Scanner; 
-public class PersonDemo { 
-public static void main(String[] args) { 
-//scanner object to accept user inputs 
-Scanner ob = new Scanner(System.in); 
-String name; 
-System.out.println("Enter Person Name : "); 
-name = ob.next(); 
-System.out.println("Enter age: "); 
-int age = ob.nextInt(); 
-System.out.println("Enter gender: "); 
-String gender = ob.next(); 
-System.out.println("Enter taxable income: "); 
-int income = ob.nextInt(); 
-//Person object and initialize values using setter 
-Person person = new Person(); 
-person.setName(name); 
-person.setAge(age); 
-person.setGender(gender); 
-person.setIncome(income); 
-//display person details using toString() method 
-System.out.println(person); 
-TaxCalculation calc = new TaxCalculation(); 
-calc.calculateTax(person); //tax calculation 
-System.out.println("After calculating tax : "); 
-System.out.println(person); 
-ob.close(); 
-} 
+class student{
+   private String name;
+   private int id;
+   private int rank;
+   public void setName(String name){
+       this.name=name;
+   } 
+   public String getName(){
+       return name;
+   } 
+    public void setId(int id){
+       this.id=id;
+   } 
+   public int getId(){
+       return id;
+   }
+    public void setRank(int rank){
+       this.rank=rank;
+   } 
+   public int getRank(){
+       return rank;
+   }
+   public static void main(String[]args){
+       Scanner sc=new Scanner(System.in);
+       
+       
+       student s=new student();
+       
+       String name=sc.nextLine();
+       s.setName(name);
+       
+       
+       int id=sc.nextInt();
+        s.setId(id);
+       
+       
+       int rank=sc.nextInt();
+       s.setRank(rank);
+       System.out.println(s.getName());
+       System.out.println(s.getId());
+       System.out.println(s.getRank());
+   }
 }
